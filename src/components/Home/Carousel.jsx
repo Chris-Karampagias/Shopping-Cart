@@ -1,24 +1,12 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence, easeIn } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Icon from "@mdi/react";
 import { mdiChevronLeft, mdiChevronRight } from "@mdi/js";
+import PropTypes from "prop-types";
 
-export default function Carousel() {
-  const [images, setImages] = useState([]);
+function Carousel({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState("left");
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products?limit=5")
-      .then((res) => res.json())
-      .then((data) => {
-        const newImages = [];
-        data.forEach((el) => {
-          newImages.push(el.image);
-        });
-        setImages(newImages);
-      });
-  }, []);
 
   const handleNext = () => {
     if (currentIndex + 1 === images.length) {
@@ -81,7 +69,7 @@ export default function Carousel() {
             }}
           />
         </div>
-        <div className="flex w-3/5 h-[700px] p-10 border-black border-2 bg-white rounded-2xl overflow-hidden relative">
+        <div className="flex w-3/5 h-[700px] p-10 border-black  border-[1px] bg-white rounded-2xl overflow-hidden relative shadow-2xl">
           <AnimatePresence>
             <motion.img
               layout
@@ -114,7 +102,7 @@ export default function Carousel() {
             className={
               currentIndex === index
                 ? "h-7 w-7 rounded-full border-solid bg-orange-500 border-orange-500  border-2 cursor-pointer "
-                : "h-7 w-7 rounded-full border-solid bg-slate-200  border-2 cursor-pointer "
+                : "h-7 w-7 rounded-full border-solid bg-white border-2 cursor-pointer "
             }
             onClick={() => {
               handleDotClick(index);
@@ -125,3 +113,9 @@ export default function Carousel() {
     </div>
   );
 }
+
+Carousel.propTypes = {
+  images: PropTypes.array.isRequired,
+};
+
+export default Carousel;
