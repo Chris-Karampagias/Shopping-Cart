@@ -29,7 +29,9 @@ export default function Home() {
 
   return (
     <>
-      {(loading && <h1 className="text-7xl text-center">Loading...</h1>) ||
+      {(loading && (
+        <h1 className="text-7xl text-center mt-20 mb-[2000px]">Loading...</h1>
+      )) ||
         (error && (
           <>
             <ErrorPage error={error} />
