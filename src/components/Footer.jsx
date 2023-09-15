@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="h-[100px] text-3xl w-full bg-black flex flex-col gap-2 items-center text-white absolute bottom-0">
+    <footer className="h-[100px] text-3xl w-full bg-black flex flex-col gap-2 items-center text-white relative bottom-0">
       <h1>Site made by Chris Karampagias</h1>
       <div className="flex gap-20">
         <a
