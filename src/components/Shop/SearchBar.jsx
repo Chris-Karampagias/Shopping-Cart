@@ -7,9 +7,9 @@ function SearchBar({ products, handleResult }) {
     products.forEach((product) => {
       if (product.title.toLowerCase().includes(value.toLowerCase())) {
         filteredProducts.push(product);
+        handleResult(filteredProducts);
       }
     });
-    handleResult(filteredProducts);
   }, [value]);
   return (
     <form
@@ -28,7 +28,7 @@ function SearchBar({ products, handleResult }) {
         value={value}
         placeholder="Search for anything..."
         id="search"
-        onChange={(e) => {
+        onInput={(e) => {
           setValue(e.target.value);
         }}
       />
