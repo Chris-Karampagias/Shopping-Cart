@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="h-[100px] text-3xl w-full bg-black flex flex-col gap-2 items-center text-white absolute bottom-0">
+    <footer className="h-[100px] text-3xl w-full bg-black flex flex-col gap-2 items-center text-white absolute bottom-0">
       <h1>Site made by Chris Karampagias</h1>
       <div className="flex gap-20">
         <a
@@ -18,6 +18,6 @@ export default function Footer() {
           <i className="devicon-linkedin-plain text-5xl cursor-pointer"></i>
         </a>
       </div>
-    </div>
+    </footer>
   );
 }

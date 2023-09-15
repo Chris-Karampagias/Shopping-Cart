@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="w-full h-28 bg-orange-500 text-white decoration-2 flex justify-between items-center text-5xl pl-4 pr-4 shadow-2xl sticky top-0 z-10">
+      <nav className="w-full h-28 bg-orange-500 text-white decoration-2 flex justify-between items-center text-5xl pl-4 pr-4 shadow-2xl sticky top-0 z-10">
         <h1>Fake Clothing Store</h1>
         <div className="flex gap-20">
           <Link
@@ -46,7 +46,7 @@ export default function Navbar() {
             </div>
           </Link>
         </div>
-      </div>
+      </nav>
       <Outlet />
     </>
   );
