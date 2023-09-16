@@ -36,7 +36,7 @@ const Shop = ({ filteredProducts, selectedItem, error, loading }) => {
   );
 };
 
-describe.only("Shop functionality tests", () => {
+describe("Shop functionality tests", () => {
   it("shows a loading message while images are being fetched and nothing else", () => {
     render(
       <Shop
