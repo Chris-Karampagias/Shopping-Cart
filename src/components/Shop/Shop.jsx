@@ -1,14 +1,22 @@
 import { useState, useEffect } from "react";
+import { Outlet } from "react-router-dom";
 import ItemGrid from "./ItemGrid";
 import FullItem from "./FullItem";
 import SearchBar from "./SearchBar";
 import ErrorPage from "../ErrorPage";
+import { useOutletContext } from "react-router-dom";
 export default function Shop() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedItem, setSelectedItem] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [cart, setCart] = useOutletContext();
+
+  const addToCart = (title, image, price, quantity) => {
+    const newCart = [...cart, { title, image, price: price * quantity }];
+    setCart(newCart);
+  };
 
   const handleItemClick = (product) => {
     const item = {
@@ -56,8 +64,8 @@ export default function Shop() {
     <main
       className={
         Object.keys(selectedItem).length === 0
-          ? "flex flex-col gap-5 min-h-screen bg-gradient-to-br from-orange-100 from-10% via-white to-orange-300"
-          : " min-h-screen bg-gradient-to-br from-orange-100 from-10% via-white to-orange-300"
+          ? "flex flex-col relative gap-5 min-h-screen bg-gradient-to-br from-orange-100 from-10% via-white to-orange-300"
+          : " min-h-screen relative bg-gradient-to-br from-orange-100 from-10% via-white to-orange-300"
       }
     >
       {(loading && (
@@ -88,10 +96,12 @@ export default function Shop() {
               image={selectedItem.image}
               price={selectedItem.price}
               description={selectedItem.description}
+              addToCart={addToCart}
               goBack={goBack}
             />
           </>
         ))}
+      <Outlet context={[cart, setCart]} />
     </main>
   );
 }
