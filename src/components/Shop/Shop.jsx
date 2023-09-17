@@ -13,8 +13,14 @@ export default function Shop() {
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useOutletContext();
 
-  const addToCart = (title, image, price, quantity) => {
-    const newCart = [...cart, { title, image, price: price * quantity }];
+  const addToCart = (title, image, price, quantity, id) => {
+    if (cart.find((prod) => prod.id === id)) {
+      return;
+    }
+    const newCart = [
+      ...cart,
+      { title, image, price: price * quantity, quantity, id },
+    ];
     setCart(newCart);
   };
 
@@ -24,6 +30,7 @@ export default function Shop() {
       price: product.price,
       image: product.image,
       description: product.description,
+      id: product.id,
     };
     setSelectedItem(item);
     setFilteredProducts([]);
@@ -96,6 +103,7 @@ export default function Shop() {
               image={selectedItem.image}
               price={selectedItem.price}
               description={selectedItem.description}
+              id={selectedItem.id}
               addToCart={addToCart}
               goBack={goBack}
             />

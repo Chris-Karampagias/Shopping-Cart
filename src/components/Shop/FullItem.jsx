@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Icon from "@mdi/react";
 import { mdiChevronLeft } from "@mdi/js";
+import PropTypes from "prop-types";
 
-function FullItem({ title, image, price, description, goBack }) {
+function FullItem({ title, image, price, description, id, addToCart, goBack }) {
   const [quantity, setQuantity] = useState(1);
 
   const reduceQuantity = () => {
@@ -20,6 +21,7 @@ function FullItem({ title, image, price, description, goBack }) {
     <section className="w-full min-h-screen flex relative">
       <button className="h-[50px] sticky left-0 top-24 hover:scale-105 duration-200 ">
         <Icon
+          data-testid="go-back"
           path={mdiChevronLeft}
           size={5}
           onClick={() => {
@@ -59,7 +61,12 @@ function FullItem({ title, image, price, description, goBack }) {
                   +
                 </button>
               </div>
-              <button className="bg-orange-500 text-white w-[60%] self-center rounded-2xl p-2 text-4xl shadow-xl hover:scale-105 duration-200">
+              <button
+                onClick={() => {
+                  addToCart(title, image, price, quantity, id);
+                }}
+                className="bg-orange-500 text-white w-[60%] self-center rounded-2xl p-2 text-4xl shadow-xl hover:scale-105 duration-200"
+              >
                 Add to cart
               </button>
             </div>
@@ -72,5 +79,15 @@ function FullItem({ title, image, price, description, goBack }) {
     </section>
   );
 }
+
+FullItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  addToCart: PropTypes.func.isRequired,
+  goBack: PropTypes.func.isRequired,
+};
 
 export default FullItem;
