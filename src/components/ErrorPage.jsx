@@ -8,7 +8,10 @@ function ErrorPage({ error }) {
       <p className="text-gray-500">{error}</p>
       <h2>
         Click{" "}
-        <Link className="hover:underline text-orange-500 cursor-pointer" to="/">
+        <Link
+          className="hover:underline text-orange-500 cursor-pointer"
+          to="/home"
+        >
           here
         </Link>{" "}
         to return to the homepage

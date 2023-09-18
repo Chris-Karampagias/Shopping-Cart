@@ -1,7 +1,14 @@
-import "./App.css";
-
+import { Navigate } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 function App() {
-  return <h1>Hello</h1>;
+  return (
+    <div className="min-h-screen">
+      <Navigate to="/home" />
+      <Navbar />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
