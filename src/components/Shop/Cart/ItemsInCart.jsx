@@ -4,7 +4,10 @@ import PropTypes from "prop-types";
 
 function ItemsInCart({ cart, handleDelete }) {
   return (
-    <div className="flex flex-col gap-10 p-2 mt-10">
+    <section
+      data-testid="items-in-cart"
+      className="flex flex-col gap-10 p-2 mt-10"
+    >
       {cart.map((prod, index) => {
         return (
           <div
@@ -34,7 +37,7 @@ function ItemsInCart({ cart, handleDelete }) {
           </div>
         );
       })}
-    </div>
+    </section>
   );
 }
 
