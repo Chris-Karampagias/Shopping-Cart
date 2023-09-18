@@ -1,7 +1,19 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 function SearchBar({ products, handleResult }) {
+  const location = useLocation();
+  const cartIsOpen = location.pathname.includes("cart");
+  let className;
   const [value, setValue] = useState("");
+
+  if (cartIsOpen) {
+    className =
+      "self-center mt-7 blur-md pointer-events-none shadow-xl rounded-2xl";
+  } else {
+    className = "self-center mt-7 shadow-xl rounded-2xl";
+  }
+
   useEffect(() => {
     const filteredProducts = [];
     products.forEach((product) => {
@@ -13,7 +25,7 @@ function SearchBar({ products, handleResult }) {
   }, [value]);
   return (
     <form
-      className="self-center mt-7 shadow-xl rounded-2xl"
+      className={className}
       action=""
       onSubmit={(e) => {
         e.preventDefault();

@@ -2,10 +2,23 @@ import { useState } from "react";
 import Icon from "@mdi/react";
 import { mdiChevronLeft } from "@mdi/js";
 import PropTypes from "prop-types";
+import { useLocation } from "react-router-dom";
 
 function FullItem({ title, image, price, description, id, addToCart, goBack }) {
   const [quantity, setQuantity] = useState(1);
+  const location = useLocation();
+  const cartIsOpen = location.pathname.includes("cart");
+  const body = document.querySelector("body");
+  let className;
 
+  if (cartIsOpen) {
+    className = "w-full blur-md pointer-events-none min-h-screen flex relative";
+    body.classList.add("overflow-hidden");
+    window.scrollTo({ top: "-112px", left: 0 });
+  } else {
+    className = "w-full min-h-screen flex relative";
+    body.classList.remove("overflow-hidden");
+  }
   const reduceQuantity = () => {
     if (quantity === 1) {
       return;
@@ -18,7 +31,7 @@ function FullItem({ title, image, price, description, id, addToCart, goBack }) {
     setQuantity(quantity + 1);
   };
   return (
-    <section className="w-full min-h-screen flex relative">
+    <section className={className}>
       <button className="h-[50px] sticky left-0 top-24 hover:scale-105 duration-200 ">
         <Icon
           data-testid="go-back"
