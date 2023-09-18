@@ -6,6 +6,7 @@ export default function Home() {
   const [images, setImages] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  window.scrollTo({ top: 0, left: 0 });
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=5")
       .then((res) => {

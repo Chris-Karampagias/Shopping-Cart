@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import ItemGrid from "./ItemGrid";
 import FullItem from "./FullItem";
 import SearchBar from "./SearchBar";
@@ -12,7 +12,7 @@ export default function Shop() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useOutletContext();
-
+  window.scrollTo({ top: 0, left: 0 });
   const addToCart = (title, image, price, quantity, id) => {
     if (cart.find((prod) => prod.id === id)) {
       return;
