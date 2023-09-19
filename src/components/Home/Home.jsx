@@ -47,7 +47,7 @@ export default function Home() {
               </h1>
               <img
                 className="w-full max-h-[650px] lg:max-h-[1000px] lg:max-w-[50%] lg:order-2 rounded-t-md lg:rounded-s-xl opacity-0 aspect-square animate-show-right shadow-2xl"
-                src="./src/assets/home-photo-store.jpg"
+                src="/home-photo-store.jpg"
                 alt=""
               />
             </section>
@@ -60,7 +60,7 @@ export default function Home() {
             <section className="flex flex-col lg:flex-row gap-5 lg:mt-20 items-center justify-between">
               <img
                 className="w-full max-h-[700px] 2xl:max-h-[1000px] order-2 rounded-b-md lg:rounded-e-xl 2xl:w-[40%]  shadow-2xl"
-                src="./src/assets/home-photo-team.jpg"
+                src="/home-photo-team.jpg"
                 alt=""
               />
               <div className="flex justify-between gap-5 2xl:gap-10 2xl:w-[40%] md:mt-10 lg:order-2 flex-col">
