@@ -59,7 +59,7 @@ function Carousel({ images }) {
   return (
     <div className="mt-24 select-none ">
       <div className="flex justify-evenly items-center relative">
-        <div className="h-14 w-[70px] md:w-40 md:h-40 2xl:h-72 2xl:w-72 absolute  left-0 bottom-10 lg:bottom-1/3 z-10 flex place-content-center">
+        <div className="h-14 w-[70px] md:w-40 md:h-40 2xl:h-72 2xl:w-72 absolute z-[7]  left-0 bottom-10 lg:bottom-1/3 flex place-content-center">
           <Icon
             path={mdiChevronLeft}
             size={5}
@@ -84,7 +84,7 @@ function Carousel({ images }) {
             />
           </AnimatePresence>
         </div>
-        <div className="h-14 w-[70px] md:w-40 md:h-40 2xl:h-72 2xl:w-72 right-0 bottom-10 lg:bottom-1/3 absolute z-10 flex place-content-center">
+        <div className="h-14 w-[70px] md:w-40 md:h-40 2xl:h-72 2xl:w-72 right-0 bottom-10 lg:bottom-1/3 absolute z-[7] flex place-content-center">
           <Icon
             path={mdiChevronRight}
             size={5}
