@@ -8,7 +8,7 @@ export default function Navbar() {
   const [cart, setCart] = useState([]);
   return (
     <>
-      <nav className="w-full h-28 bg-orange-500 text-white decoration-2 flex justify-between gap-14 items-center text-2xl md:text-5xl 2xl:text-6xl pl-4 pr-4 shadow-2xl sticky top-0 z-10">
+      <nav className="w-full h-32 md:h-28 bg-orange-500 text-white decoration-2 flex justify-between gap-14 items-center text-2xl md:text-5xl 2xl:text-6xl pl-4 pr-4 shadow-2xl sticky top-0 z-10">
         <h1 className="w-1/3 md:text-4xl 2xl:text-6xl">Demo Clothing Store</h1>
         <div className="flex flex-col items-start md:flex-row md:items-center pt-1 pb-1 md:pt-0 md:pb-0 relative md:gap-14">
           <Link
@@ -44,7 +44,7 @@ export default function Navbar() {
               </div>
             )}{" "}
             {cart.length > 0 && selected === "shop" && (
-              <div className="flex mr-5">
+              <div className="mr-5">
                 <Icon
                   className="absolute top-[50px] right-0 translate-x-1 md:top-0 md:translate-y-[-50%]"
                   path={mdiCircleSmall}
