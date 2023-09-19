@@ -36,7 +36,7 @@ export default function Cart() {
         variants={slideVariants}
         initial={"slideRight"}
         animate={"slideLeft"}
-        className="bg-gradient-to-br flex flex-col overflow-auto-important from-orange-100 from-5% via-white via-50% to-orange-100 min-h-screen max-h-screen w-1/3 absolute top-[-112px] z-10 right-0 bg-white text-2xl border-2 border-black"
+        className="bg-gradient-to-br flex flex-col overflow-auto-important from-orange-100 from-5% via-white via-50% to-orange-100 min-h-screen max-h-screen w-full md:w-1/2 lg:w-1/3  absolute top-[-112px] z-10 right-0 bg-white text-2xl border-2 border-black"
       >
         {cart.length > 0 ? (
           <>

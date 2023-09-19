@@ -10,12 +10,12 @@ function ItemGrid({ products, handleItemClick }) {
 
   if (cartIsOpen) {
     className =
-      "min-h-screen blur-md pointer-events-none w-100% flex justify-center flex-wrap gap-5 gap-y-10 p-2 pt-5 pb-40";
+      "min-h-screen blur-md pointer-events-none w-100% flex justify-center 2xl:justify-start flex-wrap gap-5 gap-y-10 p-2 pt-5 pb-40";
     body.classList.add("overflow-hidden");
     window.scrollTo({ top: "-112px", left: 0 });
   } else {
     className =
-      "min-h-screen w-100% flex justify-center flex-wrap gap-5 gap-y-10 p-2 pt-5 pb-40";
+      "min-h-screen w-100% flex justify-center 2xl:justify-start flex-wrap gap-5 gap-y-10 p-2 pt-5 pb-40";
     body.classList.remove("overflow-hidden");
   }
 

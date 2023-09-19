@@ -57,9 +57,9 @@ function Carousel({ images }) {
   };
 
   return (
-    <div className="mt-24 select-none">
-      <div className="flex justify-evenly items-center">
-        <div className="w-40 h-40 flex place-content-center">
+    <div className="mt-24 select-none ">
+      <div className="flex justify-evenly items-center relative">
+        <div className="h-14 w-[70px] md:w-40 md:h-40 2xl:h-72 2xl:w-72 absolute  left-0 bottom-10 lg:bottom-1/3 z-10 flex place-content-center">
           <Icon
             path={mdiChevronLeft}
             size={5}
@@ -69,7 +69,7 @@ function Carousel({ images }) {
             }}
           />
         </div>
-        <div className="flex w-3/5 h-[700px] p-10 border-black  border-[1px] bg-white rounded-2xl overflow-hidden relative shadow-2xl">
+        <div className="flex w-full lg:w-3/5 h-[400px] md:h-[600px] 2xl:h-[800px] 2xl:w-1/2 border-black  border-[1px] bg-white rounded-2xl overflow-hidden relative shadow-2xl">
           <AnimatePresence>
             <motion.img
               layout
@@ -78,13 +78,13 @@ function Carousel({ images }) {
               initial={direction === "right" ? "hiddenRight" : "hiddenLeft"}
               animate="visible"
               exit="exit"
-              className="w-2/5 aspect-square absolute top-40 left-[30%] ="
+              className="h-2/4 w-1/2 md:h-[400px] md:w-[300px] lg:w-[400px] xl:w-[500px] 2xl:h-[500px]   aspect-square absolute top-[25%] left-[25%] md:top-[100px] md:left-[30%] lg:top-[20%] lg:left-[130px] xl:left-[200px] 2xl:left-[250px] 2xl:top-[180px]  translate-10   "
               src={images[currentIndex]}
-              alt="An image of a clothe"
+              alt="An image of a clothes"
             />
           </AnimatePresence>
         </div>
-        <div className="w-40 h-40 flex place-content-center">
+        <div className="h-14 w-[70px] md:w-40 md:h-40 2xl:h-72 2xl:w-72 right-0 bottom-10 lg:bottom-1/3 absolute z-10 flex place-content-center">
           <Icon
             path={mdiChevronRight}
             size={5}
@@ -95,14 +95,14 @@ function Carousel({ images }) {
           />
         </div>
       </div>
-      <div className="flex gap-20 w-fit mt-10 mb-20 ml-auto mr-auto justify-self-center">
+      <div className="flex gap-5 md:gap-20 w-fit mt-10 mb-20 ml-auto mr-auto justify-self-center">
         {images.map((image, index) => (
           <div
             key={index}
             className={
               currentIndex === index
-                ? "h-7 w-7 rounded-full border-solid bg-orange-500 border-orange-500  border-2 cursor-pointer "
-                : "h-7 w-7 rounded-full border-solid bg-white border-2 cursor-pointer "
+                ? "h-7 w-7 2xl:h-16 2xl:w-16 rounded-full border-solid bg-orange-500 border-orange-500  border-2 cursor-pointer "
+                : "h-7 w-7 2xl:h-16 2xl:w-16 rounded-full border-solid bg-white border-2 cursor-pointer "
             }
             onClick={() => {
               handleDotClick(index);

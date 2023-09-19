@@ -9,9 +9,10 @@ function SearchBar({ products, handleResult }) {
 
   if (cartIsOpen) {
     className =
-      "self-center mt-7 blur-md pointer-events-none shadow-xl rounded-2xl";
+      "self-center max-w-[250px] md:min-w-[350px] xl:min-w-[500px] 2xl:min-w-[800px] mt-7 blur-md pointer-events-none shadow-xl rounded-2xl";
   } else {
-    className = "self-center mt-7 shadow-xl rounded-2xl";
+    className =
+      "self-center max-w-[250px] md:min-w-[350px] xl:min-w-[500px] 2xl:min-w-[800px] mt-7 shadow-xl rounded-2xl";
   }
 
   useEffect(() => {
@@ -35,7 +36,7 @@ function SearchBar({ products, handleResult }) {
         Search for items
       </label>
       <input
-        className="text-4xl rounded-2xl p-2 focus:border-orange-500 border-[1px] outline-none cursor-pointer placeholder:text-gray-300"
+        className="text-md lg:text-xl 2xl:text-3xl w-full rounded-2xl p-3 focus:border-orange-500 border-[1px] outline-none cursor-pointer placeholder:text-gray-300"
         type="text"
         value={value}
         placeholder="Search for anything..."
